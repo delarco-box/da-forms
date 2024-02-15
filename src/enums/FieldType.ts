@@ -1,7 +1,7 @@
 export enum FieldType {
-    Text,
-    Number,
-    Date,
-    Email,
-    Phone,
+    Text = "text",
+    Number = "number",
+    Date = "date",
+    Email = "email",
+    Phone = "phone",
 }

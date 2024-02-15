@@ -5,7 +5,7 @@ export class Form {
     constructor(
         public id: number = -1,
         public name: string = "untitled",
-        public fields: Array<IField> = [],
+        public fields: Array<IField<any>> = [],
     ) { }
 
     public describe(): string {

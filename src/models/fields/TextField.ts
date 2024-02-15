@@ -13,10 +13,11 @@ export class TextField implements IField<string> {
         public value: string = "",
         public displayValue: string = "",
         public nullable: boolean = true,
+        public order: number | null = null,
     ) { }
 
     public describe(): string {
-        return `Field ${this.id}: ${this.name} (${FieldType[this.type]})`
+        return `Field ${this.id}: ${this.name} (${this.type})`
     }
 
     public validate(): boolean {

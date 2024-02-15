@@ -1,4 +1,5 @@
 import './App.css'
+import FormComponent from './components/FormComponent/FormComponent'
 import { Form } from './models/Form'
 import { DateField } from './models/fields/DateField'
 import { EmailField } from './models/fields/EmailField'
@@ -17,11 +18,7 @@ function App() {
 
   return (
     <>
-      {form.describe()}
-      <ul>
-        {form.fields.map((field, index) => <li key={index}>{field.describe()}</li>)}
-      </ul>
-      <hr />
+      <FormComponent form={form} />
     </>
   )
 }

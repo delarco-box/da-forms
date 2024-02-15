@@ -1,33 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { Form } from './models/Form'
+import { DateField } from './models/fields/DateField'
+import { EmailField } from './models/fields/EmailField'
+import { NumberField } from './models/fields/NumberField'
+import { PhoneField } from './models/fields/PhoneField'
+import { TextField } from './models/fields/TextField'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+  const form = new Form(1, "form 1")
+  form.fields.push(new TextField(1, "nome"))
+  form.fields.push(new NumberField(2, "idade"))
+  form.fields.push(new EmailField(3, "email"))
+  form.fields.push(new DateField(4, "nascimento"))
+  form.fields.push(new PhoneField(5, "telefone"))
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {form.describe()}
+      <ul>
+        {form.fields.map((field, index) => <li key={index}>{field.describe()}</li>)}
+      </ul>
+      <hr />
     </>
   )
 }

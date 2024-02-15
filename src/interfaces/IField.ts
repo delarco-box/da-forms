@@ -8,6 +8,7 @@ export interface IField<T> {
     value: T | null
     displayValue: T | null
     nullable: boolean
+    order: number | null
 
     describe(): string
     validate(): boolean

@@ -1,0 +1,63 @@
+{
+    "id": 1,
+    "name": "Formulário 1",
+    "fields": [
+        {
+            "type": "text",
+            "name": "nome",
+            "label": "Nome do cliente",
+            "order": 1,
+            "minLength": 5,
+            "maxLength": 500
+        },
+        {
+            "type": "number",
+            "name": "idade",
+            "label": "Idade do cliente",
+            "order": 2
+        },
+        {
+            "type": "text",
+            "name": "email",
+            "label": "E-mail do cliente",
+            "order": 3,
+            "minLength": 5,
+            "maxLength": 500,
+            "validator": "\\w+@\\w(.\\w)+"
+        },
+        {
+            "type": "date",
+            "name": "nascimento",
+            "label": "Data de nascimento",
+            "order": 4,
+            "minValue": "new Date(1920, 0, 1)",
+            "maxValue": "new Date()"
+        },
+        {
+            "type": "text",
+            "name": "telefone",
+            "label": "Telefone do cliente",
+            "help": "Telefone no formato (00) 00000-0000",
+            "order": 5,
+            "validator": "",
+            "formater": ""
+        },
+        {
+            "type": "list",
+            "name": "uf",
+            "label": "Endereço UF",
+            "order": 6,
+            "httpSource": "/api/uf-list",
+            "multi-select": false
+        },
+        {
+            "type": "list",
+            "name": "cidade",
+            "label": "Endereço Cidade",
+            "order": 7,
+            "dependencies": ["uf"],
+            "httpSource": "(uf) => '/api/cidade-list/' + uf)",
+            "multi-select": false
+        }
+    ]
+}
